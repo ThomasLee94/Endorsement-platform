@@ -35,6 +35,7 @@ More contextual information can be found here: https://medium.com/p/b08e5242e6f9
     a. As a user, I want to see person’s name, profile pic, what company they’re working at, what position they hold, and their top skills.
 
 5. Back-log:
+
     a. As a user, I want to be automatically taken to the landing page if I have already logged in.
 
     b. Weighted endorsement (perhaps through a coin system?). 
