@@ -1,4 +1,4 @@
-## Endorsement Platform
+# Endorsement Platform
 
 Linkedin's endorsement system is not reliable, this will be an attempt to overcome their deficiencies.
 
@@ -6,13 +6,11 @@ More contextual information can be found here: https://medium.com/p/b08e5242e6f9
 
 # Specification
 
-**User features:**
-
-1. Login feature for personal information.
+**1. Login feature for personal information:**
 
     a. Basic info of user (photo, name, age, job, location, top 3 engineering skills).
 
-2. Landing Page Features
+**2. Landing Page Features:**
 
     a. As a user, I want to see the top ranked people in my field. 
 
@@ -22,7 +20,7 @@ More contextual information can be found here: https://medium.com/p/b08e5242e6f9
 
     d. As a user, I want to see a feed of what my friends are up to on the site. 
 
-3. Category Page Features: 
+**3. Category Page Features:** 
 
     a. As a user, I want to see top skills needed in today’s tech companies ( *Pending StackShare API* ). 
 
@@ -30,11 +28,11 @@ More contextual information can be found here: https://medium.com/p/b08e5242e6f9
 
     c. As a user, I want to be able to see a particular skill in more detail if I choose.
 
-4. User Cards:
+**4. User Cards:**
 
     a. As a user, I want to see person’s name, profile pic, what company they’re working at, what position they hold, and their top skills.
 
-5. Back-log:
+**5. Back-log:**
 
     a. As a user, I want to be automatically taken to the landing page if I have already logged in.
 
