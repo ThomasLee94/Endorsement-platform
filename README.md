@@ -2,7 +2,7 @@
 
 Linkedin's endorsement system is not reliable, this will be an attempt to overcome their deficiencies.
 
-More contextual information can be found here: https://medium.com/p/b08e5242e6f9/edit usivnduvs
+More contextual information can be found here: https://medium.com/p/b08e5242e6f9/edit 
 
 # Specification
 
