@@ -7,7 +7,7 @@ const express = require("express");
 const handlebars = require("express-handlebars");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
-/** ! Above npm packages installed */
+/** ! Above npm packages installed & nodemon*/
 
 /** Run app.js as an instance express */
 let app = express()
