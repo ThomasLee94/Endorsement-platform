@@ -12,6 +12,15 @@ const mongoose = require("mongoose");
 /** Run app.js as an instance express */
 let app = express()
 
+/** Connecting to mongoose */
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/endorsement-platform', { useNewUrlParser: true });
+
+let db = mongoose.connection;
+db.on('error', console.error.bind(console, 'connection error:'));
+db.once('open', () => {
+    console.log('Database connected successfully.');
+});
+
 /** Use body-parser */
 app.use(bodyParser.urlencoded||({extended: true}));
 app.use(express.json());
@@ -21,8 +30,7 @@ app.use('/public', express.static('public'));
 app.engine('handlebars', handlebars({defaultLayout: 'main'}));
 app.set('view engine', 'handlebars');
 
-/** Connecting to mongoose */
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/To-Do-List")
+
 
 /**Port */
 const port = process.env.PORT || 3000;
