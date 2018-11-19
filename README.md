@@ -4,6 +4,9 @@ Linkedin's endorsement system is not reliable, this will be an attempt to overco
 
 More contextual information can be found here: https://medium.com/p/b08e5242e6f9/edit 
 
+More information regarding our technical and software product development journey can be found here: 
+https://medium.com/p/edd163cff10b/edit
+
 # Specification
 
 **1. Login feature for personal information:**
