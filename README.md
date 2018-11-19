@@ -1,6 +1,6 @@
 # Endorsement Platform
 
-Linkedin's endorsement system is not reliable, this will be an attempt to overcome their deficiencies.
+Linkedin's endorsement system is not reliable, this will be an attempt to overcome their shortcomings.
 
 More contextual information can be found here: https://medium.com/p/b08e5242e6f9/edit 
 
