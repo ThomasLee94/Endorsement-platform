@@ -26,12 +26,12 @@ app.engine('handlebars', handlebars({defaultLayout: 'main'}));
 app.set('view engine', 'handlebars');
 
 /** Use body-parser */
-app.use(bodyParser.urlencoded||({extended: true}));
+app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.json());
 app.use('/public', express.static('public'));
 
 
-
+require('./controllers/skills')(app);
 
 /**Port */
 const port = process.env.PORT || 3000;

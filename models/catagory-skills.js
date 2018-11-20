@@ -2,11 +2,13 @@
 
 /** Initialise mongoose */
 let mongoose = require("mongoose");
+let schema = mongoose.Schema
 
-let SkillSchema = new mongoose.Schema({
+let SkillSchema = new schema({
     name: String,
     description: String,
-    votes: 
+
+    votes:
     {
       up: {
         type: Number,
