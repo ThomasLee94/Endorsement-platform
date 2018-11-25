@@ -2,17 +2,15 @@
 
 /** Initialise mongoose */
 let mongoose = require("mongoose");
-let schema = mongoose.Schema
+let Schema = mongoose.Schema
 
-let UserSchema = new schema({
-    profilePicture: true,
+let UserSchema = new Schema({
+    // profilePicture: Boolean,
     name: String,
     company: String,
     position: String,
     /** connect topThreeSkills with Skills model through associations */
-    skills: [
-        {type: schema.Types.ObjectId ref: 'user-skills'}
-    ]
+    skillId: {type: Schema.Types.ObjectId, ref: 'Skill'}
 })
 
 /** Generating the model for User*/

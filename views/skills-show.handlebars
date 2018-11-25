@@ -1,0 +1,13 @@
+<div style="text-align: left">
+    <a href="/">Back to Home</a>
+</div>
+
+<h1>{{skill.name}}</h1>
+
+<div>
+    {{> user-form}}
+
+    {{#each users}}
+        {{> user}}
+    {{/each}}
+</div>

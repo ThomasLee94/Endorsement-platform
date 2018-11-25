@@ -1,5 +1,6 @@
 /** Importing models */
-let Skill = require("../models/catagory-skills");
+let Skill = require("../models/skill");
+let User = require("../models/user")
 
 module.exports = (app) => {
     /** Routes */
@@ -9,31 +10,44 @@ module.exports = (app) => {
         Skill.find()
             .then((skills) => {
                 console.log(skills)
-               res.render("skills-category-index", {skills: skills})
+               res.render("skills-index", {skills: skills})
             }).catch(err => {
                 console.log(err)
             })
     })
 
+    // var users = [
+    //     {name: "Bob", skillOne: "Python", skillTwo: "C", skillThree: "Swift"}
+    // ]
+
+    /* How to separate dummy user data based on what skill is passed in?
+       Can create a seperate button within the skills/:id page to go to a new page - a form to
+       generate new user data
+    */
+
     app.get('/skills/:id', (req, res) => {
         Skill.findById(req.params.id)
             .then((skill) => {
-                console.log(req.params.id)
-                res.render("skill-users", {skill: skill})
+                User.find({ skillId: req.params.id }).then(users => {
+                    console.log(users)
+                    res.render("skills-show", {skill: skill, users: users})
+                })
             }).catch(err => {
                 console.log(err)
             })
     })
 
     /** Create Skill category (will be static, users will not be able to create/delete */
-    app.post('/skills', (req, res) => {
-        Skill.create(req.body)
-            .then((skill) => {
-                res.render('skills-category-index');
-            }).catch((err) => {
-                console.log(err)
-            })
-    })
+    // app.post('/users/:id', (req, res) => {
+    //     User.create(req.body)
+    //         .then((user) => {
+    //             console.log(user)
+    //             console.log("here")
+    //             res.render("skills-show", {user: user})
+    //         }).catch((err) => {
+    //             console.log(err)
+    //         })
+    // })
 
     /** Update skill categories */
     app.put('/skills/:id', (req, res) => {
