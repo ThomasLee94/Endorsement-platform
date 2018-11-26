@@ -9,26 +9,28 @@ module.exports = (app) => {
     app.get('/', (req, res) => {
         Skill.find()
             .then((skills) => {
-                console.log(skills)
-               res.render("skills-index", {skills: skills})
+               res.render("skills-category-index", {skills: skills})
             }).catch(err => {
                 console.log(err)
             })
     })
 
-    /* How to separate dummy user data based on what skill is passed in?
-       Can create a seperate button within the skills/:id page to go to a new page - a form to
-       generate new user data
-    */
-
-    app.get('/skills/:id', (req, res) => {
-        Skill.findById(req.params.id)
+    /** Create Skill category (will be static, users will not be able to create/delete */
+    app.post('/skills', (req, res) => {
+        Skill.create(req.body)
             .then((skill) => {
-                User.find({ skillId: req.params.id }).then(users => {
-                    console.log(users)
-                    res.render("skills-show", {skill: skill, users: users})
-                })
-            }).catch(err => {
+                res.render('skills-category-index');
+            }).catch((err) => {
+                console.log(err)
+            })
+    })
+
+    /** Update skill categories */
+    app.put('/skills/:id', (req, res) => {
+        Skill.findByIdAndUpdate(req.params.id, req.body)
+            .then((list) => {
+                res.redirect('skills-category-index')
+            }).catch((err) => {
                 console.log(err)
             })
     })
