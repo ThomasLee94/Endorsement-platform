@@ -12,11 +12,6 @@ const mongoose = require("mongoose");
 /** Run app.js as an instance express */
 let app = express()
 
-// app.locals.skills = [
-//     "Python",
-//     "Java"
-// ]
-
 /** Connecting to mongoose */
 mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/endorsement-platform', { useNewUrlParser: true });
 
