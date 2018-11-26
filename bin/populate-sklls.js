@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const Skill = require('../models/skills')
+const Skill = require('../models/skill')
 
 mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/endorsement-platform', { useNewUrlParser: true });
 
