@@ -16,10 +16,6 @@ module.exports = (app) => {
             })
     })
 
-    // var users = [
-    //     {name: "Bob", skillOne: "Python", skillTwo: "C", skillThree: "Swift"}
-    // ]
-
     /* How to separate dummy user data based on what skill is passed in?
        Can create a seperate button within the skills/:id page to go to a new page - a form to
        generate new user data
@@ -50,12 +46,12 @@ module.exports = (app) => {
     // })
 
     /** Update skill categories */
-    app.put('/skills/:id', (req, res) => {
-        Skill.findByIdAndUpdate(req.params.id, req.body)
-            .then((list) => {
-                res.redirect('skills-category-index')
-            }).catch((err) => {
-                console.log(err)
-            })
-    })
+    // app.put('/skills/:id', (req, res) => {
+    //     Skill.findByIdAndUpdate(req.params.id, req.body)
+    //         .then((list) => {
+    //             res.redirect('skills-category-index')
+    //         }).catch((err) => {
+    //             console.log(err)
+    //         })
+    // })
 }
