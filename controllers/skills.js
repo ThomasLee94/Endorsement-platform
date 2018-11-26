@@ -16,11 +16,14 @@ module.exports = (app) => {
     })
 
     /** Create Skill category (will be static, users will not be able to create/delete */
-    app.post('/skills', (req, res) => {
-        Skill.create(req.body)
+    app.get('/skills/:id', (req, res) => {
+        Skill.findById(req.params.id)
             .then((skill) => {
-                res.render('skills-category-index');
-            }).catch((err) => {
+                User.find({ skillId: req.params.id }).then(users => {
+                    console.log(users)
+                    res.render("skills-show", {skill: skill, users: users})
+                })
+            }).catch(err => {
                 console.log(err)
             })
     })
