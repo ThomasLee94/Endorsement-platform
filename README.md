@@ -31,7 +31,9 @@ A wireframe for our platform can be found here: https://sketch.cloud/s/q8nW2
 
     a. New users can apply to a skill they want to be endorsed in. 
 
-    b. The "approval" system for a new user in order to be endorsed will be much more specific, they will have to apply with project(s) to be reviewed by moderators in order to be approved. Later on, the users that will "moderated" will also be allowed to themselves moderate for new applicants.
+    b. The "approval" system for a new user in order to be endorsed will be much more specific, they will have to apply with project(s) to be reviewed by 
+    
+    moderators in order to be approved. Later on, the users that will "moderated" will also be allowed to themselves moderate for new applicants.
 
     c. Users can pick multiple skills they want to endorse or be endorsed in.
 
@@ -45,7 +47,9 @@ A wireframe for our platform can be found here: https://sketch.cloud/s/q8nW2
 # High-level Issues
 
     Q1. Why does your platform only cater to industry specific coding skills like JavaScript?
-    A1. Because it is easier to apply metrics that can be measured to a specific skill, and from there an appropriate "mastery level" can be determined. We have intentionally left out soft-skills like "leadership" as it is multifaceted and much more difficult to measure accurately.
+    A1. Because it is easier to apply metrics that can be measured to a specific skill, and from there an appropriate "mastery level" can be determined. We have 
+    
+    intentionally left out soft-skills like "leadership" as it is multifaceted and much more difficult to measure accurately.
 
     Q2. How will people endorse others when they can't even see their work on the platform?
     A2. For now, we will have people post github repositories but we will eventually implement a feature to host code for others to see. 
