@@ -2,10 +2,13 @@
     <a href="/">Back to Home</a>
 </div>
 
+<div>
+    <a href="/skills/{{skill._id}}/users/new">New User</a>
+</div>
+
 <h1>{{skill.name}}</h1>
 
 <div>
-    {{> user-form}}
 
     {{#each users}}
         {{> user}}

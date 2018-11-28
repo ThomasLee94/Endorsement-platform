@@ -9,6 +9,7 @@ let UserSchema = new Schema({
     name: String,
     company: String,
     position: String,
+    upVotes: {default: 0, required: true, type: Number},
     /** connect topThreeSkills with Skills model through associations */
     skillId: {type: Schema.Types.ObjectId, ref: 'Skill'}
 })
