@@ -45,15 +45,15 @@ A wireframe for our platform can be found here: https://sketch.cloud/s/q8nW2
 
 # High-level Issues
 
-    **Q1**.**Why does your platform only cater to industry specific coding skills like JavaScript?**
+    Q1. Why does your platform only cater to industry specific coding skills like JavaScript?**
     A1. Because it is easier to apply metrics that can be measured to a specific skill, and from there an appropriate "mastery level" can be determined. We have 
     intentionally left out soft-skills like "leadership" as it is multifaceted and much more difficult to measure accurately.
 
-    **Q2. How will people endorse others when they can't even see their work on the platform?**
+    Q2. How will people endorse others when they can't even see their work on the platform?
     A2. For now, we will have people post github repositories but we will eventually implement a feature to host code for others to see. 
 
-    **Q3. How will our endorsement algorithm affect user visibility near the top?**
+    Q3. How will our endorsement algorithm affect user visibility near the top?
     A3. Another complicated issue, we have still to fully flesh out the mechanics of this. Definitely something that will be looked at very closely at a later date.
 
-    **Q4. Problems we have yet digest**
+    Q4. Problems we have yet digest
     A4. How will new users want to get endorsed by others of a higher "rank"?
