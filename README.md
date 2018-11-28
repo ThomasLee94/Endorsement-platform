@@ -45,7 +45,7 @@ A wireframe for our platform can be found here: https://sketch.cloud/s/q8nW2
 
 # High-level Issues
 
-    **Q1. Why does your platform only cater to industry specific coding skills like JavaScript?**
+    **Q1**.**Why does your platform only cater to industry specific coding skills like JavaScript?**
     A1. Because it is easier to apply metrics that can be measured to a specific skill, and from there an appropriate "mastery level" can be determined. We have 
     intentionally left out soft-skills like "leadership" as it is multifaceted and much more difficult to measure accurately.
 
