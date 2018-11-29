@@ -27,4 +27,14 @@ module.exports = (app) => {
                 console.log(err)
             })
     })
+
+    app.put("/skills/:id/vote-up", function(req, res) {
+        Skill.findById(req.params.id).exec(function(err, skill) {
+          skill.upVotes.push(req.user.skillId);
+          skill.voteScore = skill.voteTotal + 1;
+          skill.save();
+      
+          res.status(200);
+        });
+      });
 }
