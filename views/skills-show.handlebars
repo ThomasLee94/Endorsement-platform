@@ -8,9 +8,28 @@
 
 <h1>{{skill.name}}</h1>
 
-<div>
+{{!-- <div>
 
     {{#each users}}
         {{> user}}
     {{/each}}
+</div> --}}
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-6 offset-lg-3 col-md-8 offset-md-2">
+            {{!-- Show users per skill-category --}}
+            <div class='list-group' id='lists'>
+            {{#each users}}
+                <a class="list-group-item list-group-item-action">
+                    <h5 class="">{{this.name}}</h5>
+                    <p class="">{{this.company}}</p>
+                    <button onclick="upVote('{{this.skillId}}', '{{this._id}}')">Upvote</button>
+                    <p id="upVotes-{{this._id}}">{{this.upVotes}}</p>
+                </a>
+            {{/each}}
+            </div>   
+        </div>
+    </div>
+
 </div>
