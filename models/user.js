@@ -6,9 +6,12 @@ let Schema = mongoose.Schema
 
 let UserSchema = new Schema({
     // profilePicture: Boolean,
-    name: String,
-    company: String,
-    position: String,
+    name: {required: true, type: String},
+    company: {required: true, type: String},
+    position: {required: true, type: String},
+    skillOne: String,
+    skillTwo: String,
+    skillThree: String,
     upVotes: {default: 0, required: true, type: Number},
     /** connect topThreeSkills with Skills model through associations */
     skillId: {type: Schema.Types.ObjectId, ref: 'Skill'}
