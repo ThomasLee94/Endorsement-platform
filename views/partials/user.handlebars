@@ -1,10 +1,16 @@
-<div class="card" id="{{this._id}}">
-  <div class="card-block">
-    <h4 class="card-name">{{this.name}}</h4>
-    <p class="card-company">{{this.company}}</p>
-    <p class="card-position">{{this.position}}</p>
-    <p class="card-skills">{{this.skillOne}} {{this.skillTwo}} {{this.skillThree}}</p>
-    <button class="btn btn-primary" onclick="upVote('{{this.skillId}}', '{{this._id}}')">Upvote</button>
-    <p id="upVotes-{{this._id}}">{{this.upVotes}}</p>
-  </div>
+<div class="col-8" style="margin: auto">
+    <div class="card border-primary mb-3"
+         id="{{this._id}}"
+         style="border-width: 2px"
+      <div class="card-block">
+          <div class="col-3">
+              <h4 class="card-name">{{this.name}}</h4>
+              <p class="card-company">{{this.company}}</p>
+              <p class="card-position">{{this.position}}</p>
+              <p class="card-skills">{{this.skillOne}} {{this.skillTwo}} {{this.skillThree}}</p>
+              <button class="btn btn-primary" onclick="upVote('{{this.skillId}}', '{{this._id}}')">Upvote</button>
+              <p id="upVotes-{{this._id}}">{{this.upVotes}}</p>
+            </div>
+          </div>
+    </div>
 </div>
