@@ -1,0 +1,2 @@
+1. Do authentication in app.js 
+2. Increment upvote properly and render it. 

@@ -17,7 +17,7 @@
                 <a class="list-group-item list-group-item-action">
                     <h5 class="">{{this.name}}</h5>
                     <p class="">{{this.company}}</p>
-                    <button onclick="upVote('{{this.skillId}}', '{{this._id}}')">Upvote</button>
+                    <button class="vote-up" data-id="{{this.skillId}}">Upvote</button>
                     <p id="upVotes-{{this._id}}">{{this.upVotes}}</p>
                 </a>
             {{/each}}

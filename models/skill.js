@@ -7,18 +7,6 @@ let Schema = mongoose.Schema
 let SkillSchema = new Schema({
     name: String,
     description: String,
-
-    votes:
-    {
-      up: {
-        type: Number,
-        default: 0
-      },
-      total: {
-        type: Number,
-        default: 0
-      }
-    }
 })
 
 /** Generating the model for Skill */

@@ -28,13 +28,20 @@ module.exports = (app) => {
             })
     })
 
-    app.put("/skills/:id/vote-up", function(req, res) {
-        Skill.findById(req.params.id).exec(function(err, skill) {
-          skill.upVotes.push(req.user.skillId);
-          skill.voteScore = skill.voteTotal + 1;
-          skill.save();
-      
-          res.status(200);
-        });
+    app.put("/skills/:skill_id/vote-up", function(req, res) {
+        // This will work once i do authentication. 
+          Vote.find({ skillId: skill_id, userId: currentUser._id}).then(results => {
+            if (results.length > 0) {
+                res.send("Cannot upvote.")
+            }
+            
+            // TODO: Find the skill that is referenced by skill_id and increment it up by 1.
+
+            vote = Vote({ skillId: skill_id, userId: currentUser._id}).save().then(vote => {
+                res.send('upvoted!')
+            }).catch(error => {
+                res.send(error.message)
+            })
+          });
       });
 }
