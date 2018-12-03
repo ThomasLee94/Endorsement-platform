@@ -1,5 +1,5 @@
-let Skill = require("../models/skill");
-let User = require("../models/user")
+const Skill = require("../models/skill");
+const User = require("../models/user")
 
 
 module.exports = (app) => {
@@ -29,8 +29,6 @@ module.exports = (app) => {
     //     })
     // })
 
-
-
     app.post('/skills/users', (req, res) => {
 
         User.create(req.body).then(user => {
@@ -39,5 +37,19 @@ module.exports = (app) => {
         }).catch((err) => {
             console.log(err.message)
         });
+    });
+
+    // SIGN UP POST
+    app.post("/sign-up", (req, res) => {
+        // Create User
+        const user = new User(req.body);
+
+        user.save()
+            .then(user => {
+                res.redirect("/");
+            })
+            .catch(err => {
+                console.log(err.message);
+            });
     });
 }

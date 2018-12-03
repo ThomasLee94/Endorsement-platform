@@ -7,10 +7,15 @@ const express = require("express");
 const handlebars = require("express-handlebars");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
+const cookieParser = require('cookie-parser');
+const jwt = require('jsonwebtoken');
 /** ! Above npm packages installed & nodemon*/
 
 /** Run app.js as an instance express */
 let app = express()
+
+/** Initialising cookieParser  */
+app.use(cookieParser());
 
 /** Connecting to mongoose */
 mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/endorsement-platform', { useNewUrlParser: true });

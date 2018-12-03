@@ -1,6 +1,6 @@
 /** Importing models */
-let Skill = require("../models/skill");
-let User = require("../models/user")
+const Skill = require("../models/skill");
+const User = require("../models/user")
 
 module.exports = (app) => {
     /** Routes */

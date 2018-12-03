@@ -1,8 +1,9 @@
 /** Model for the user */
 
-/** Initialise mongoose */
-let mongoose = require("mongoose");
-let Schema = mongoose.Schema
+/** Initialise mongoose and bcrypt*/
+const mongoose = require("mongoose");
+const bcrypt = require("bcrypt");
+const Schema = mongoose.Schema; 
 
 let UserSchema = new Schema({
     // profilePicture: Boolean,
@@ -10,8 +11,42 @@ let UserSchema = new Schema({
     company: String,
     position: String,
     // upVotes: {default: 0, required: true, type: Number},
-    skillId: {type: Schema.Types.ObjectId, ref: 'Skill'}
+    skillId: {type: Schema.Types.ObjectId, ref: 'Skill'},
+    // Auth
+    createdAt: { type: Date },
+    updatedAt: { type: Date },
+    password: { type: String, select: false },
+    username: { type: String, required: true }
 })
+
+// Must use function here! ES6 => functions do not bind this!
+UserSchema.pre("save", function(next) {
+  // SET createdAt AND updatedAt
+  const now = new Date();
+  this.updatedAt = now;
+  if (!this.createdAt) {
+    this.createdAt = now;
+  }
+
+  // ENCRYPT PASSWORD
+  const user = this;
+  if (!user.isModified("password")) {
+    return next();
+  }
+  bcrypt.genSalt(10, (err, salt) => {
+    bcrypt.hash(user.password, salt, (err, hash) => {
+      user.password = hash;
+      next();
+    });
+  });
+});
+
+// Need to use function to enable this.password to work.
+UserSchema.methods.comparePassword = function(password, done) {
+  bcrypt.compare(password, this.password, (err, isMatch) => {
+    done(err, isMatch);
+  });
+};
 
 /** Generating the model for User*/
 let User = mongoose.model('User', UserSchema);
