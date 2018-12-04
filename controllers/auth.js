@@ -18,11 +18,17 @@ module.exports = (app) => {
                 console.log(err.message);
                 return res.status(400).send({ err: err });
             });
+
     });
+
+    // Sign up GET
+    app.get("/sign-up", (req, res) => {
+        res.render("sign-up")
+    })
 
     // LOGIN FORM
     app.get('/login', (req, res) => {
-        res.render('login.handlebars');
+        res.render("login");
     });
 
     // LOGIN

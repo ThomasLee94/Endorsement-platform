@@ -1,5 +1,7 @@
 /**
-* Project: Endorsement Platform (EndorseMe)
+*******************************************
+* Project: ENDORSEMENT PLATFORM (EndorseMe)
+*******************************************
 */
 
 /** Require npm packages */
@@ -12,10 +14,28 @@ const jwt = require('jsonwebtoken');
 /** ! Above npm packages installed & nodemon*/
 
 /** Run app.js as an instance express */
-let app = express()
+let app = express();
 
 /** Initialising cookieParser  */
 app.use(cookieParser());
+
+// Custom authentication middleware + initialisation. 
+// Checking the validity of nToken. 
+let checkAuth = (req, res, next) => {
+    console.log("Checking authentication");
+    if (typeof req.cookies.nToken === 'undefined' || req.cookies.nToken === null) {
+        console.log("hello");
+        req.user = null;
+    } else {
+        console.log("hi");
+        let token = req.cookies.nToken;
+        let decodedToken = jwt.decode(token, { complete: true }) || {};
+        req.user = decodedToken.payload;
+    }
+  
+    next();
+  };
+  app.use(checkAuth);
 
 /** Connecting to mongoose */
 mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/endorsement-platform', { useNewUrlParser: true });
@@ -36,9 +56,9 @@ app.use('/public', express.static('public'));
 app.engine('handlebars', handlebars({defaultLayout: 'main'}));
 app.set('view engine', 'handlebars');
 
-
 require('./controllers/skills')(app);
 require('./controllers/users')(app);
+require('./controllers/auth')(app);
 
 /**Port */
 const port = process.env.PORT || 3000;

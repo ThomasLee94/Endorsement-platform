@@ -10,8 +10,8 @@ let UserSchema = new Schema({
     name: String,
     company: String,
     position: String,
-    // upVotes: {default: 0, required: true, type: Number},
-    skillId: {type: Schema.Types.ObjectId, ref: 'Skill'},
+    // TODO: skillsID change to skills, put object in array later.
+    skillId: [{type: Schema.Types.ObjectId, ref: 'Skill'}],
     // Auth
     createdAt: { type: Date },
     updatedAt: { type: Date },
