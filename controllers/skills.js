@@ -7,10 +7,9 @@ module.exports = (app) => {
 
     /** Index */
     app.get('/', (req, res) => {
-        let currentUser =  req.user;
         Skill.find()
             .then((skills) => {
-               res.render("skills-index", {skills: skills, currentUser})
+               res.render("skills-index", {skills: skills})
             }).catch(err => {
                 console.log(err)
             })

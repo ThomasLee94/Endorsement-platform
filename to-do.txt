@@ -1,3 +1,15 @@
-1. Do authentication in app.js 
+1. Do authentication in auth.js
+    - /sign up
+        - create .env 
+    - /logout
+    - change the navbar if logged in
+    - /login 
+    - /profile 
 2. Increment upvote properly and render it. 
+
+changed req.user to res.locals.currentUser. 
+
+access currentUser in controllers with User.findById(res.locals.curentUser._id).then(user => {
+    res.locals.currentUser = user;
+});
 

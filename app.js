@@ -5,6 +5,7 @@
 */
 
 /** Require npm packages */
+require('dotenv').config();
 const express = require("express");
 const handlebars = require("express-handlebars");
 const bodyParser = require("body-parser");
@@ -24,18 +25,20 @@ app.use(cookieParser());
 let checkAuth = (req, res, next) => {
     console.log("Checking authentication");
     if (typeof req.cookies.nToken === 'undefined' || req.cookies.nToken === null) {
-        console.log("hello");
-        req.user = null;
+        console.log("not logged in");
+        res.locals.currentUser = null;
     } else {
-        console.log("hi");
+        console.log("logged in");
         let token = req.cookies.nToken;
         let decodedToken = jwt.decode(token, { complete: true }) || {};
-        req.user = decodedToken.payload;
+        
+        res.locals.currentUser = decodedToken.payload;
     }
-  
+
     next();
-  };
-  app.use(checkAuth);
+};
+
+app.use(checkAuth);
 
 /** Connecting to mongoose */
 mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/endorsement-platform', { useNewUrlParser: true });

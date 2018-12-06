@@ -9,9 +9,9 @@ module.exports = (app) => {
     app.post("/sign-up", (req, res) => {
         // Create User and JWT
         const user = new User(req.body);
-
+        
         user.save().then(user => {
-                let token = jwt.sign({ _id: user._id }, process.env.SECRET, { expiresIn: "60 days" });
+                let token = jwt.sign({ _id: user._id, name: user.name }, process.env.SECRET, { expiresIn: "60 days" });
                 res.cookie('nToken', token, { maxAge: 900000, httpOnly: true });
                 res.redirect("/");
             }).catch(err => {
@@ -49,7 +49,7 @@ module.exports = (app) => {
                 return res.status(401).send({ message: "Wrong Username or password" });
             }
             // Create a token
-            const token = jwt.sign({ _id: user._id, username: user.username }, process.env.SECRET, {
+            const token = jwt.sign({ _id: user._id, name: user.name }, process.env.SECRET, {
                 expiresIn: "60 days"
             });
             // Set a cookie and redirect to root
