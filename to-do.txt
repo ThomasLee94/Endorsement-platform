@@ -1,7 +1,7 @@
 1. Do authentication in auth.js
-    - /sign up
-        - create .env 
-    - /logout
+    - /sign up - DONE 1
+        - create .env - DONE 2 
+    - /logout - DONE 3 
     - change the navbar if logged in
     - /login 
     - /profile 
