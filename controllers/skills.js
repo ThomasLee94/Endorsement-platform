@@ -7,12 +7,19 @@ module.exports = (app) => {
 
     /** Index */
     app.get('/', (req, res) => {
-        Skill.find()
-            .then((skills) => {
-               res.render("skills-index", {skills: skills})
-            }).catch(err => {
-                console.log(err)
-            })
+        const user = res.locals.currentUser;
+        console.log('user here ------------------------------------')
+        console.log(user)
+        if (user !== null) {
+            Skill.find()
+                .then((skills) => {
+                res.render("skills-index", {skills: skills})
+                }).catch(err => {
+                    console.log(err)
+                })
+        } else {
+            res.redirect('/login');
+        }
     })
 
     /** Create Skill category (will be static, users will not be able to create/delete */

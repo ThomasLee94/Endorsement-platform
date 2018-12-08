@@ -12,6 +12,7 @@ const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const cookieParser = require('cookie-parser');
 const jwt = require('jsonwebtoken');
+const unless = require('express-unless')
 /** ! Above npm packages installed & nodemon*/
 
 /** Run app.js as an instance express */
@@ -27,16 +28,19 @@ let checkAuth = (req, res, next) => {
     if (typeof req.cookies.nToken === 'undefined' || req.cookies.nToken === null) {
         console.log("not logged in");
         res.locals.currentUser = null;
+        next();
     } else {
         console.log("logged in");
         let token = req.cookies.nToken;
         let decodedToken = jwt.decode(token, { complete: true }) || {};
         
         res.locals.currentUser = decodedToken.payload;
+        next();
     }
 
-    next();
 };
+
+// checkAuth.unless = unless;
 
 app.use(checkAuth);
 

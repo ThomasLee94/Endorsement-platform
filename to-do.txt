@@ -3,7 +3,7 @@
         - create .env - DONE 2 
     - /logout - DONE 3 
     - change the navbar if logged in
-    - /login 
+    - /login - DONE 4 
     - /profile 
 2. Increment upvote properly and render it. 
 

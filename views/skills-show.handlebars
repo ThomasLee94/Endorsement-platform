@@ -14,21 +14,21 @@
 Logged in!
 {{/if}}
 
+
 <div class="container">
     <div class="row">
         <div class="col-lg-6 offset-lg-3 col-md-8 offset-md-2">
             {{!-- Show users per skill-category --}}
             <div class='list-group' id='lists'>
-            {{#each users}}
-                <a class="list-group-item list-group-item-action">
+                {{#each users}}
+                <a class="list-group-item list-group-item-action" href="/profile/{{this._id}}">
                     <h5 class="">{{this.name}}</h5>
                     <p class="">{{this.company}}</p>
                     <button class="vote-up" data-id="{{this.skillId}}">Upvote</button>
                     <p id="upVotes-{{this._id}}">{{this.upVotes}}</p>
                 </a>
-            {{/each}}
-            </div>   
+                {{/each}}
+            </div>
         </div>
     </div>
-
 </div>
