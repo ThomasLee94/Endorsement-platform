@@ -57,7 +57,8 @@ db.once('open', () => {
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.json());
 
-app.use(express.static(path.join(__dirname, 'public')));
+// Commented out public as it is not being used.
+// app.use(express.static(path.join(__dirname, 'public')));
 
 /** Use handlebars for client-side rendering */
 app.engine('handlebars', handlebars({defaultLayout: 'main'}));
