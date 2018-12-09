@@ -61,6 +61,11 @@ module.exports = (app) => {
                  alert("ERROR")
              } else {
                  let check = false;
+                 if (relationship.userId == req.query.voterId){
+                    res.send("You can't upvote yourself!")
+                 }
+                //  looping through voters array to check
+                // if the user already upvoted.
                  for (let i of relationship.voters) {
                      if (i == req.query.voterId) {
                          check = true;
