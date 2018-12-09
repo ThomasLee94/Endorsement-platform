@@ -7,12 +7,12 @@
 /** Require npm packages */
 require('dotenv').config();
 const express = require("express");
+const path = require("path")
 const handlebars = require("express-handlebars");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const cookieParser = require('cookie-parser');
 const jwt = require('jsonwebtoken');
-const unless = require('express-unless')
 /** ! Above npm packages installed & nodemon*/
 
 /** Run app.js as an instance express */
@@ -40,7 +40,6 @@ let checkAuth = (req, res, next) => {
 
 };
 
-// checkAuth.unless = unless;
 
 app.use(checkAuth);
 
@@ -57,7 +56,8 @@ db.once('open', () => {
 /** Use body-parser */
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.json());
-app.use('/public', express.static('public'));
+// app.use('/public', express.static('public'));
+app.use(express.static(path.join(__dirname, 'public')));
 
 /** Use handlebars for client-side rendering */
 app.engine('handlebars', handlebars({defaultLayout: 'main'}));

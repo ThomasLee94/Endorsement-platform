@@ -62,16 +62,6 @@ module.exports = (app) => {
         });
     });
 
-    app.get('/profile/:id', (req, res) => {
-        User.findById(req.params.id)
-            .then((user) => {
-                res.render("profile", {user: user})
-            }).catch(err => {
-                console.log(err)
-            })
-        
-    })
-
     // LOGOUT
     app.get('/logout', (req, res) => {
         res.clearCookie('nToken');

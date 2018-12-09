@@ -1,1 +1,17 @@
-<p>{{this}}</p>
+<div class="userProfile">
+    
+    <p>Name: {{this.user.name}}</p>
+    <p>Email: {{this.user.email}}</p>
+    {{#if this.user.company}}
+        <p>Company: {{this.user.company}}</p>
+    {{else}}
+        <p>Company: N/A</p>
+    {{/if}}
+
+    {{#if this.user.position}}
+        <p>Position: {{this.user.position}}</p>
+    {{else}}
+        <p>Position: N/A</p>
+    {{/if}}
+</div>
+

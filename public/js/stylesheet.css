@@ -1,0 +1,13 @@
+.userProfile{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color:red;
+    font-family: Helvetica;
+}
+
+.test{
+    color: red; 
+}

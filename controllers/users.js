@@ -30,7 +30,6 @@ module.exports = (app) => {
     // })
 
     app.post('/skills/users', (req, res) => {
-
         User.create(req.body).then(user => {
             console.log(req.body)
             res.redirect(`/skills/${user.skillId}`);
@@ -38,4 +37,14 @@ module.exports = (app) => {
             console.log(err.message)
         });
     });
+
+    app.get('/profile/:id', (req, res) => {
+        User.findById(req.params.id)
+            .then((user) => {
+                res.render("profile", {user: user})
+            }).catch(err => {
+                console.log(err)
+            })
+        
+    })
 }

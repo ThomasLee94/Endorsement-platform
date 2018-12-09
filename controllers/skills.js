@@ -24,7 +24,9 @@ module.exports = (app) => {
 
     /** Create Skill category (will be static, users will not be able to create/delete */
     app.get('/skills/:id', (req, res) => {
-        Skill.findById(req.params.id)
+        // If statement used to force login page if cookies are not found. 
+        if(req.cookies.nToken){
+            Skill.findById(req.params.id)
             .then((skill) => {
                 User.find({ skillId: req.params.id }).then(users => {
                     console.log(users)
@@ -33,6 +35,10 @@ module.exports = (app) => {
             }).catch(err => {
                 console.log(err)
             })
+        } else {
+            res.redirect("/login")
+        }
+        
     })
 
     app.put("/skills/:skill_id/vote-up", function(req, res) {

@@ -4,7 +4,9 @@
     - /logout - DONE 3 
     - change the navbar if logged in
     - /login - DONE 4 
-    - /profile 
+    - /profile - DONE 5, TODO: needs to be styled. 
+    - force login if cookies are not found  
+
 2. Increment upvote properly and render it. 
 
 changed req.user to res.locals.currentUser. 

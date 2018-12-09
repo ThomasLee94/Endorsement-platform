@@ -6,9 +6,11 @@ let Schema = mongoose.Schema
 
 let VoteSchema = new Schema({
     // profilePicture: Boolean,
-    userId: {type: Schema.Types.ObjectId, ref: 'User'},
+    voterId: {type: Schema.Types.ObjectId, ref: 'User'},
+    voteeId: {type: Schema.Types.ObjectId, ref: 'User'}, 
     /** connect topThreeSkills with Skills model through associations */
-    skillId: {type: Schema.Types.ObjectId, ref: 'Skill'}
+    skillId: {type: Schema.Types.ObjectId, ref: 'Skill'},
+
 })
 
 /** Generating the model for User*/
