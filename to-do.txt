@@ -9,7 +9,7 @@
     - show users who have created accounts - 
     - create wrong password/email template
 
-2. Increment upvote properly and render it. 
+2. Increment upvote properly and render it - DONE 7 
 
 FUTURE:
 3 - Add admin user and dashboard to approve people who apply for a skill. 
