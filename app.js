@@ -56,7 +56,7 @@ db.once('open', () => {
 /** Use body-parser */
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.json());
-// app.use('/public', express.static('public'));
+
 app.use(express.static(path.join(__dirname, 'public')));
 
 /** Use handlebars for client-side rendering */
