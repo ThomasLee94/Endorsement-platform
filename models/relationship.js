@@ -6,11 +6,11 @@ let Schema = mongoose.Schema
 
 let RelationshipSchema = new Schema({
     userId: {
-        type: Schema.Types. ObjectId,
+        type: Schema.Types.ObjectId,
         ref: "User"
     },
     skillId: {
-        type: Schema.Types. ObjectId,
+        type: Schema.Types.ObjectId,
         ref: "Skill"
     },
     // status: {
@@ -19,7 +19,7 @@ let RelationshipSchema = new Schema({
     //     enum: ["Pending", "Approved"]
     // },
     voters: [{
-        type: Schema.Types. ObjectId,
+        type: Schema.Types.ObjectId,
         ref: "User"
     }]
 })

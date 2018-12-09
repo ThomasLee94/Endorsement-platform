@@ -22,9 +22,11 @@
                     <h5 class="">{{this.userId.name}}</h5>
                     <p class="">{{this.userId.company}}</p>
                     <p class="">{{this.userId.position}}</p>
-                    <button class="vote-up" data-id="{{this.skillId}}">Upvote</button>
-                    <p id="upVotes-{{this._id}}">{{this.upVotes}}</p>
+                    <p>Endorsements: {{this.voters.length}}</p>
                 </a>
+                
+                <form method="POST" action="/skills/vote?voterId={{../userId}}&userId={{this.userId._id}}&skillId={{../skill._id}}"><button type="submit">Upvote</button></form>
+                
                 {{/each}}
             </div>
         </div>
