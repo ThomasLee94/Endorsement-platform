@@ -54,7 +54,6 @@ module.exports = (app) => {
     })
 
     app.post("/skills/vote", (req, res) => {
-        console.log("REach", req.query)
          Relationship.findOne({userId: req.query.userId, skillId: req.query.skillId})
          .then(relationship => {
              if (relationship == null || relationship == undefined){
