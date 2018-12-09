@@ -64,7 +64,7 @@ module.exports = (app) => {
                  for (let i of relationship.voters) {
                      if (i == req.query.voterId) {
                          check = true;
-                         alert("Already upvoted!")
+                         res.send("Already upvoted!")
                      } 
                  }
                  if (check == false) {
