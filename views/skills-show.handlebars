@@ -4,16 +4,13 @@
     <a href="/">Back to Home</a>
 </div>
 
-<div>
-    <a href="/skills/{{skill._id}}/users/new">New User</a>
-</div>
-
 <h1>{{skill.name}}</h1>
 
-{{#if currentUser}}
-Logged in!
+{{#if new}}
+    <form method="POST" action="/skills/apply?userId={{userId}}&skillId={{skill._id}}">
+        <button type="submit">Apply</button>
+    </form>
 {{/if}}
-
 
 <div class="container">
     <div class="row">
@@ -22,8 +19,9 @@ Logged in!
             <div class='list-group' id='lists'>
                 {{#each users}}
                 <a class="list-group-item list-group-item-action" href="/profile/{{this._id}}">
-                    <h5 class="">{{this.name}}</h5>
-                    <p class="">{{this.company}}</p>
+                    <h5 class="">{{this.userId.name}}</h5>
+                    <p class="">{{this.userId.company}}</p>
+                    <p class="">{{this.userId.position}}</p>
                     <button class="vote-up" data-id="{{this.skillId}}">Upvote</button>
                     <p id="upVotes-{{this._id}}">{{this.upVotes}}</p>
                 </a>

@@ -5,9 +5,14 @@
     - change the navbar if logged in
     - /login - DONE 4 
     - /profile - DONE 5, TODO: needs to be styled. 
-    - force login if cookies are not found  
+    - force login if cookies are not found  - DONE 6 
+    - show users who have created accounts - 
+    - create wrong password/email template
 
 2. Increment upvote properly and render it. 
+
+FUTURE:
+3 - Add admin user and dashboard to approve people who apply for a skill. 
 
 changed req.user to res.locals.currentUser. 
 

@@ -25,6 +25,7 @@ app.use(cookieParser());
 // Checking the validity of nToken. 
 let checkAuth = (req, res, next) => {
     console.log("Checking authentication");
+    console.log(req.cookies);
     if (typeof req.cookies.nToken === 'undefined' || req.cookies.nToken === null) {
         console.log("not logged in");
         res.locals.currentUser = null;
@@ -33,14 +34,13 @@ let checkAuth = (req, res, next) => {
         console.log("logged in");
         let token = req.cookies.nToken;
         let decodedToken = jwt.decode(token, { complete: true }) || {};
-        
+        console.log("Decoded Token", decodedToken);
+        req.userId = decodedToken.payload._id
         res.locals.currentUser = decodedToken.payload;
         next();
     }
 
 };
-
-
 app.use(checkAuth);
 
 /** Connecting to mongoose */
@@ -63,9 +63,10 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.engine('handlebars', handlebars({defaultLayout: 'main'}));
 app.set('view engine', 'handlebars');
 
+require('./controllers/auth')(app);
 require('./controllers/skills')(app);
 require('./controllers/users')(app);
-require('./controllers/auth')(app);
+
 
 /**Port */
 const port = process.env.PORT || 3000;
