@@ -1,6 +1,5 @@
 /** Importing models */
 const Skill = require("../models/skill");
-const User = require("../models/user")
 const Relationship = require("../models/relationship");
 
 module.exports = (app) => {
