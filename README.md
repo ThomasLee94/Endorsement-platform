@@ -12,7 +12,7 @@ A wireframe for our platform can be found here: https://sketch.cloud/s/q8nW2
 ## Setup
 - Clone the repo:
   ```
-  https://github.com/ThomasLee94/Endorsement-platform.git
+  git clone https://github.com/ThomasLee94/Endorsement-platform.git
   ```
 - Run npm install.
   ```
