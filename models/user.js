@@ -3,22 +3,22 @@
 /** Initialise mongoose and bcrypt*/
 const mongoose = require("mongoose");
 const bcrypt = require("bcrypt");
-const Schema = mongoose.Schema; 
+const Schema = mongoose.Schema;
 
 let UserSchema = new Schema({
     // Auth
     createdAt: { type: Date },
     updatedAt: { type: Date },
     email: { type: String, required: true },
-    password: { type: String, select: false },
+    password: { type: String, required: true },
 
     name: String,
     company: String,
     position: String,
     // TODO: skillsID change to skills, put object in array later.
     skillId: [{type: Schema.Types.ObjectId, ref: 'Skill'}]
-    
-    
+
+
 })
 
 // Must use function here! ES6 => functions do not bind this!
@@ -55,5 +55,3 @@ let User = mongoose.model('User', UserSchema);
 
 /** Exporting User to be used in routes */
 module.exports = User;
-
-

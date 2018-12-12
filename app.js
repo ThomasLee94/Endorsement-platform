@@ -21,8 +21,8 @@ let app = express();
 /** Initialising cookieParser  */
 app.use(cookieParser());
 
-// Custom authentication middleware + initialisation. 
-// Checking the validity of nToken. 
+// Custom authentication middleware + initialisation.
+// Checking the validity of nToken.
 let checkAuth = (req, res, next) => {
     console.log("Checking authentication");
     console.log(req.cookies);
@@ -39,7 +39,6 @@ let checkAuth = (req, res, next) => {
         res.locals.currentUser = decodedToken.payload;
         next();
     }
-
 };
 app.use(checkAuth);
 
