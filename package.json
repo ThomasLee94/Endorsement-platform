@@ -4,6 +4,7 @@
   "description": "Linkedin's endorsement system is not reliable, this will be an attempt to overcome their deficiencies.",
   "main": "app.js",
   "scripts": {
+    "start": "node app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
