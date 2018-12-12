@@ -40,7 +40,7 @@ let checkAuth = (req, res, next) => {
         next();
     }
 };
-app.use(checkAuth);
+
 
 /** Connecting to mongoose */
 mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/endorsement-platform', { useNewUrlParser: true });
@@ -62,6 +62,84 @@ app.use(express.json());
 /** Use handlebars for client-side rendering */
 app.engine('handlebars', handlebars({defaultLayout: 'main'}));
 app.set('view engine', 'handlebars');
+
+app.get('/admin', (req, res) => {
+    res.render('admin');
+})
+const Skill = require('./models/skill')
+app.get('/populate-db', (req, res) => {
+
+    skillData = [
+    {
+        name: 'JavaScript',
+        description: ''
+    },
+    {
+        name: 'Python',
+        description: ''
+    },
+    {
+        name: 'Swift',
+        description: ''
+    },
+    {
+        name: 'C',
+        description: ''
+    },
+    {
+        name: 'Java',
+        description: ''
+    },
+    {
+        name: 'Objective C',
+        description: ''
+    },
+    {
+        name: 'Go',
+        description: ''
+    },
+    {
+        name: 'React',
+        description: ''
+    },
+    {
+        name: 'Node',
+        description: ''
+    },
+    {
+        name: 'MySQL',
+        description: ''
+    },
+    {
+        name: 'Sass',
+        description: ''
+    },
+    {
+        name: 'Ruby',
+        description: ''
+    },
+    {
+        name: 'Flask',
+        description: ''
+    },
+    {
+        name: 'C',
+        description: ''
+    }
+]
+
+skillData.forEach(element => {
+    Skill.create(element)
+        .then((skill) => {
+            console.log(skill)
+        }).catch(err => {
+            console.log(err)
+        })
+});
+    res.redirect('/')
+})
+
+app.use(checkAuth);
 
 require('./controllers/auth')(app);
 require('./controllers/skills')(app);
