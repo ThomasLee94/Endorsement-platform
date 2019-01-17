@@ -6,7 +6,7 @@ More contextual information can be found [here](https://medium.com/@tomlee123/en
 
 More information regarding our technical and software product development journey can be found [here](https://medium.com/@tomlee123/endorsements-done-differently-part-2-2-edd163cff10b)
 
-A wireframe for our platform can be found here: https://sketch.cloud/s/q8nW2
+A wireframe for our platform can be found [here](https://sketch.cloud/s/q8nW2)
 
 ## Setup
 - Clone the repo:
