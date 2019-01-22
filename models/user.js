@@ -12,7 +12,7 @@ let UserSchema = new Schema({
     email: { type: String, required: true },
     password: { type: String, required: true },
 
-    name: String,
+    name: {required: true, type: String},
     company: String,
     position: String,
     // TODO: skillsID change to skills, put object in array later.

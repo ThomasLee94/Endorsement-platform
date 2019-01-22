@@ -3,3 +3,9 @@
     justify-content: center;
     flex-direction: column;
 }
+
+.navbar-right{
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: row;
+}
